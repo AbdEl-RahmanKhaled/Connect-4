@@ -11,7 +11,7 @@ function render() {
 
         for (let row = 5; row >= 0; row--) {
             let cir = `<svg height="100" width="100" class="row-${row}">
-                             <circle cx="50" cy="50" r="40" stroke="#0B4E72" stroke-width="3" class="free" /></svg>`;
+                  <circle cx="50" cy="50" r="40" stroke="#0B4E72" stroke-width="3" class="free" data-y="${row}" /></svg>`;
             col_div.innerHTML += cir;
         }
     }

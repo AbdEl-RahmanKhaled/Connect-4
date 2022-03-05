@@ -1,6 +1,6 @@
 let current_color = 'red';
 let board = [];
-
+// red 2, y 1
 window.addEventListener("load", function () {
     init_board();
     // select all columns
@@ -25,7 +25,12 @@ function setColor(col_no) {
         row.classList.remove("free");
         // set current color
         row.classList.add(current_color);
-        // change the color
+        // change the colo
+        if(current_color === "red"){
+            board[row.getAttribute("data-y")][col_no] = 2;
+        } else {
+            board[row.getAttribute("data-y")][col_no] = 1;
+        }
         changeColor();
     } else {
         alert("no more free spaces")
@@ -36,7 +41,7 @@ function init_board() {
     for (let i = 0; i < 6; i++) {
         board[i] = new Array(7);
         for (let j = 0; j < 7; j++) {
-            board[i][j] = -1;
+            board[i][j] = 0;
         }
     }
 }
