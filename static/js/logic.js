@@ -1,6 +1,8 @@
 let current_color = 'red';
+let board = [];
 
 window.addEventListener("load", function () {
+    init_board();
     // select all columns
     let cols = document.querySelectorAll('.column');
     // add on click to column
@@ -27,6 +29,15 @@ function setColor(col_no) {
         changeColor();
     } else {
         alert("no more free spaces")
+    }
+}
+
+function init_board() {
+    for (let i = 0; i < 6; i++) {
+        board[i] = new Array(7);
+        for (let j = 0; j < 7; j++) {
+            board[i][j] = -1;
+        }
     }
 }
 

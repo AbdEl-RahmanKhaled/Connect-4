@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap');
+
 * {
     border: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 #game-board {
@@ -31,4 +34,21 @@ circle.red {
 
 circle.yellow {
     fill: #DAD400;
+}
+
+.logo h1 {
+    font-size: 5rem;
+    text-align: center;
+    height: 10vh;
+    line-height: 10vh;
+    color: rgb(7, 70, 107);
+    /*background: #d52e3f;*/
+    font-family: 'Niconne', cursive;
+    font-weight: 300;
+    text-shadow: 5px 5px 0 #eb452b,
+    10px 10px 0 #efa032,
+    15px 15px 0 #46b59b,
+    20px 20px 0 #017e7f,
+    25px 25px 0 #052939
+
 }
