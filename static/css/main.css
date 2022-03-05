@@ -1,0 +1,34 @@
+* {
+    border: 0;
+    padding: 0;
+}
+
+#game-board {
+    background: #0074B3;
+    width: 730px;
+    cursor: pointer;
+    margin: 50px auto;
+    box-shadow: 5px 5px 10px #707070;
+    text-align: center;
+}
+
+.column {
+    width: 100px;
+    display: inline-block;
+}
+
+.column:hover circle.free {
+    fill: #D5E4ED;
+}
+
+circle.free {
+    fill: #fff;
+}
+
+circle.red {
+    fill: #D50000;
+}
+
+circle.yellow {
+    fill: #DAD400;
+}
