@@ -55,18 +55,17 @@ function init_board() {
 }
 
 function changeTurn() {
+     _board[engine.move.row][engine.move.col] = engine.colors[engine.current_color];
+     // update board in game engine
+    engine.board = _board;
+    console.log(engine.checkDiagonal(engine.colors[engine.current_color]));
+
+    // change color
     if (engine.current_color === 'red') {
-        _board[engine.move.row][engine.move.col] = engine.colors[engine.current_color];
         engine.current_color = 'yellow'
     } else {
-        _board[engine.move.row][engine.move.col] = engine.colors[engine.current_color];
         engine.current_color = 'red'
     }
-    // update board in game engine
-    engine.board = _board;
-
-    console.log(_board)
-    console.log(engine.isDrown())
 }
 
 
