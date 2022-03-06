@@ -1,7 +1,8 @@
-
 export class GameEngine {
-    #_board;
     #_move;
+    #_current_color;
+    #_colors = {'red': 1, 'yellow': 2};
+    #_board;
 
     constructor() {
     }
@@ -11,12 +12,29 @@ export class GameEngine {
     }
 
 
+    get board() {
+        return this.#_board;
+    }
+
     get move() {
         return this.#_move;
     }
 
     set move(value) {
         this.#_move = value;
+    }
+
+    get colors() {
+        return this.#_colors;
+    }
+
+
+    get current_color() {
+        return this.#_current_color;
+    }
+
+    set current_color(value) {
+        this.#_current_color = value;
     }
 
     isDrown() {
@@ -26,6 +44,10 @@ export class GameEngine {
             }
         }
         return true;
+    }
+
+    checkDiagonal() {
+
     }
 
 }

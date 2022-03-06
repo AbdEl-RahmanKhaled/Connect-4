@@ -25,7 +25,7 @@ export class AIGameEngine extends GameEngine {
         let points = [];
         for (let i = 0; i < 6; i++) {
             for (let j = 0; j < 7; j++) {
-                if (!this.#_board[i][j]) {
+                if (! this.board[i][j]) {
                     points.push(new Point(i, j));
                 }
             }

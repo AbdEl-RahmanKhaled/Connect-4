@@ -3,13 +3,13 @@ import {Point} from "./Point.js";
 import {render} from "./view.js"
 import {AIGameEngine} from "./AIGameEngine.js";
 
-let colors = {'red': 1, 'yellow': 2};
-let current_color = 'red';
+// let colors = {'red': 1, 'yellow': 2};
+// let current_color = 'red';
 let _board = [];
 let engine = new AIGameEngine();
 
-
 // red 1, yellow 1
+
 window.addEventListener("load", function () {
     render();
     init_board();
@@ -34,7 +34,7 @@ function setColor(col_no) {
         // remove indicator
         row.classList.remove("free");
         // set current color
-        row.classList.add(current_color);
+        row.classList.add(engine.current_color);
         // set current move
         engine.move = new Point(row.getAttribute("data-y"), col_no);
         // change the turn
@@ -55,12 +55,12 @@ function init_board() {
 }
 
 function changeTurn() {
-    if (current_color === 'red') {
-        _board[engine.move.row][engine.move.col] = colors[current_color];
-        current_color = 'yellow'
+    if (engine.current_color === 'red') {
+        _board[engine.move.row][engine.move.col] = engine.colors[engine.current_color];
+        engine.current_color = 'yellow'
     } else {
-        _board[engine.move.row][engine.move.col] = colors[current_color];
-        current_color = 'red'
+        _board[engine.move.row][engine.move.col] = engine.colors[engine.current_color];
+        engine.current_color = 'red'
     }
     // update board in game engine
     engine.board = _board;
