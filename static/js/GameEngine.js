@@ -5,6 +5,7 @@ export class GameEngine {
     #_current_color;
     #_colors = {'red': 1, 'yellow': 2};
     #_board;
+    #_level;
 
     constructor() {
         this.#_current_color = 'red';
@@ -31,6 +32,14 @@ export class GameEngine {
         return this.#_colors;
     }
 
+
+    get level() {
+        return this.#_level;
+    }
+
+    set level(value) {
+        this.#_level = value;
+    }
 
     get current_color() {
         return this.#_current_color;

@@ -3,7 +3,7 @@ import {Point} from "./Point.js";
 
 export class AIGameEngine extends GameEngine {
     #_computer_move;
-    #_level;
+    #_ai_type;
 
     constructor() {
         super();
@@ -13,12 +13,13 @@ export class AIGameEngine extends GameEngine {
         return this.#_computer_move;
     }
 
-    get level() {
-        return this.#_level;
+
+    get ai_type() {
+        return this.#_ai_type;
     }
 
-    set level(value) {
-        this.#_level = value;
+    set ai_type(value) {
+        this.#_ai_type = value;
     }
 
     getAvailablePlaces() {
