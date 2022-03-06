@@ -1,8 +1,4 @@
-window.addEventListener("load", ev => {
-    render()
-});
-
-function render() {
+export function render() {
     let board = document.getElementById("game-board");
     for (let col = 0; col < 7; col++) {
         let col_div = `<div class="column" id="column-${col}" data-x="${col}"></div>`;

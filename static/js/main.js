@@ -1,7 +1,17 @@
+import {GameEngine} from "./GameEngine.js";
+import {Point} from "./Point.js";
+import {render} from "./view.js"
+import {AIGameEngine} from "./AIGameEngine.js";
+
+let colors = {'red': 1, 'yellow': 2};
 let current_color = 'red';
-let board = [];
-// red 2, y 1
+let _board = [];
+let engine = new AIGameEngine();
+
+
+// red 1, yellow 1
 window.addEventListener("load", function () {
+    render();
     init_board();
     // select all columns
     let cols = document.querySelectorAll('.column');
@@ -25,33 +35,38 @@ function setColor(col_no) {
         row.classList.remove("free");
         // set current color
         row.classList.add(current_color);
-        // change the colo
-        if(current_color === "red"){
-            board[row.getAttribute("data-y")][col_no] = 2;
-        } else {
-            board[row.getAttribute("data-y")][col_no] = 1;
-        }
-        changeColor();
+        // set current move
+        engine.move = new Point(row.getAttribute("data-y"), col_no);
+        // change the turn
+        changeTurn();
     } else {
         alert("no more free spaces")
     }
 }
 
 function init_board() {
+    // initialize 2d array board
     for (let i = 0; i < 6; i++) {
-        board[i] = new Array(7);
+        _board[i] = new Array(7);
         for (let j = 0; j < 7; j++) {
-            board[i][j] = 0;
+            _board[i][j] = 0;
         }
     }
 }
 
-function changeColor() {
+function changeTurn() {
     if (current_color === 'red') {
+        _board[engine.move.row][engine.move.col] = colors[current_color];
         current_color = 'yellow'
     } else {
+        _board[engine.move.row][engine.move.col] = colors[current_color];
         current_color = 'red'
     }
+    // update board in game engine
+    engine.board = _board;
+
+    console.log(_board)
+    console.log(engine.isDrown())
 }
 
 
