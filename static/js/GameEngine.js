@@ -5,6 +5,7 @@ export class GameEngine {
     #_board;
 
     constructor() {
+        this.#_current_color = 'red';
     }
 
     set board(value) {
