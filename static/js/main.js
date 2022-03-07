@@ -61,13 +61,15 @@ function init_board() {
 }
 
 function changeTurn() {
-    _board[engine.move.row][engine.move.col] = engine.colors[engine.current_color];
-    // update board in game engine
+     _board[engine.move.row][engine.move.col] = engine.colors[engine.current_color];
+     //update board in game engine
     engine.board = _board;
+
     //console.log(engine.checkDiagonal(engine.colors[engine.current_color]));
-    if (engine.checkStraight(engine.colors[engine.current_color])) {
+    if(engine.checkWinner(engine.colors[engine.current_color], 2)){
         alert(`${engine.colors[engine.current_color]} wins`)
     }
+
     // change color
     if (engine.current_color === 'red') {
         engine.current_color = 'yellow'
