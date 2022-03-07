@@ -10,7 +10,7 @@ let engine = new AIGameEngine();
 
 // red 1, yellow 1
 let board;
-window.addEventListener("load", function () {
+window.addEventListener("load", function() {
     render();
     init_board();
     // select all columns

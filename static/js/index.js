@@ -14,30 +14,33 @@ window.addEventListener('load', ev => {
     let txtPlayer2 = document.getElementById("txtPlayer2");
 
     txtPlayer2.hidden = true;
+    txtPlayer2.required = false;
 
     document.querySelectorAll("input[name='gameMode']").forEach(value1 => {
         value1.addEventListener('change', change_mode);
-    });// end selector
+    });//end selector
 
     document.querySelectorAll("input[name=gameLevel]").forEach(value2 => {
         value2.addEventListener('change', change_level);
-    }); // end selector
+    }); //end selector
 
     document.querySelectorAll("input[name='ai_mode']").forEach(value3 => {
         console.log(value3)
         value3.addEventListener('change', change_ai_mode);
-    }); // end selector
+    }); //end selector
 
     function change_mode(e1) {
         if (e1.target.value === "multi") {
             aiImg.classList.remove('selected');
             userImg.classList.add('selected');
             txtPlayer2.hidden = false;
+            txtPlayer2.required = true;
             aiModeDiv.hidden = true;
         } else {
             userImg.classList.remove('selected');
             aiImg.classList.add('selected');
             txtPlayer2.hidden = true;
+            txtPlayer2.required = false;
             aiModeDiv.hidden = false;
         }
     }

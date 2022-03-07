@@ -34,8 +34,8 @@ export class AIGameEngine extends GameEngine {
         return points;
     }
     
-    isAvailable(col_no){
-        
+    getRow(col_no){
+
         if(this.board[5][col_no] != 0){
             return false;
         }
@@ -44,7 +44,13 @@ export class AIGameEngine extends GameEngine {
 
 
     getEasyPlay(){
-        
+        let generatedCol;
+        do{
+          generatedCol = Math.floor(Math.random() * 7);
+        }
+        while(this.getRow())
+
+        return generatedCol;
     }
 
 }
