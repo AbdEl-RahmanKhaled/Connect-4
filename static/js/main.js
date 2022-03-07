@@ -9,12 +9,14 @@ let _board = [];
 let engine = new AIGameEngine();
 
 // red 1, yellow 1
-
+let board;
 window.addEventListener("load", function () {
     render();
     init_board();
     // select all columns
     let cols = document.querySelectorAll('.column');
+    // get board
+    board = document.getElementById("game-board");
     // add on click to column
     cols.forEach(col => {
         col.addEventListener("click", () => {
@@ -40,8 +42,12 @@ function setColor(col_no) {
         // change the turn
         changeTurn();
     } else {
-        alert("no more free spaces")
+        board.classList.add('animate');
+        setTimeout(() => {
+            board.classList.remove('animate');
+        }, 500);
     }
+
 }
 
 function init_board() {
@@ -55,11 +61,11 @@ function init_board() {
 }
 
 function changeTurn() {
-     _board[engine.move.row][engine.move.col] = engine.colors[engine.current_color];
-     // update board in game engine
+    _board[engine.move.row][engine.move.col] = engine.colors[engine.current_color];
+    // update board in game engine
     engine.board = _board;
     //console.log(engine.checkDiagonal(engine.colors[engine.current_color]));
-    if(engine.checkStraight(engine.colors[engine.current_color])){
+    if (engine.checkStraight(engine.colors[engine.current_color])) {
         alert(`${engine.colors[engine.current_color]} wins`)
     }
     // change color

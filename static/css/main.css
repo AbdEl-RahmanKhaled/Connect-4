@@ -8,6 +8,7 @@
 }
 
 #game-board, .container {
+    position: relative;
     background: #0074B3;
     width: 730px;
     cursor: pointer;
@@ -16,6 +17,35 @@
     text-align: center;
     padding-top: 4px;
     border-radius: 15px;
+}
+
+.animate {
+    animation-name: filled;
+    animation-duration: 300ms;
+    animation-iteration-count: 2;
+}
+
+@keyframes filled {
+    0% {
+        left: 1%;
+        background: #960505;
+    }
+    25% {
+        left: 0;
+        background: #960505;
+    }
+    50% {
+        left: -1%;
+        background: #960505;
+    }
+    75% {
+        left: 0;
+        background: #960505;
+    }
+    100% {
+        left: 1%;
+        background: #960505;
+    }
 }
 
 .column {
@@ -42,8 +72,8 @@ circle.yellow {
 .logo h1 {
     font-size: 5rem;
     text-align: center;
-    height: 10vh;
-    line-height: 10vh;
+    height: 8vh;
+    line-height: 8vh;
     color: rgb(7, 70, 107);
     /*background: #d52e3f;*/
     font-family: 'Niconne', cursive;
