@@ -60,8 +60,18 @@ export class GameEngine {
         return row > 5 || col > 6 || row < 0 || col < 0;
     }
 
-    checkDiagonal(color) {
-        let target = color.repeat(5);
+    checkWinner(color, level){
+        if(level === 1){
+            return this.checkStraight(color, 4);
+        }
+        else{
+            return(this.checkDiagonal(color, 5) || this.checkStraight(color, 5));
+        }
+    }
+
+
+    checkDiagonal(color, size) {
+        let target = color.toString().repeat(size);
         let directions = {
             right: [
                 "++current.row",
@@ -120,8 +130,8 @@ export class GameEngine {
         return false;
     }
 
-    checkStraight(color) {
-        let target = color.repeat(4);
+    checkStraight(color, size){
+        let target = color.toString().repeat(size);
 
         let directions = {
             row: ["++current.row", "current.col", "--current.row", "current.col"],
