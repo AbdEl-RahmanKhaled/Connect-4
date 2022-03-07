@@ -4,6 +4,7 @@
     border: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Niconne', cursive;
 }
 
 #game-board, .container {
@@ -66,6 +67,7 @@ circle.yellow {
 }
 
 .icon {
+    cursor: pointer;
     height: 100px;
     width: 100px;
     border-radius: 15px;
@@ -117,10 +119,6 @@ hr {
     height: 1px;
 }
 
-input[type=button] {
-
-}
-
 .cta {
     display: flex;
     padding: 10px 45px;
@@ -135,7 +133,9 @@ input[type=button] {
     transform: skewX(-15deg);
     width: 7em;
     justify-content: center;
+    /*align-items: baseline;*/
 }
+
 
 .cta:focus {
     outline: none;
