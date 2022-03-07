@@ -65,26 +65,16 @@ export class GameEngine {
             return this.checkStraight(color, 4);
         }
         else{
-            return(this.checkDiagonal(color, 5) || this.checkStraight(color, 5));
+            return(this.checkDiagonal(color) || this.checkStraight(color, 5));
         }
     }
 
 
-    checkDiagonal(color, size) {
-        let target = color.toString().repeat(size);
+    checkDiagonal(color) {
+        let target = color.toString().repeat(5);
         let directions = {
-            right: [
-                "++current.row",
-                "++current.col",
-                "--current.row",
-                "--current.col",
-            ],
-            left: [
-                "++current.row",
-                "--current.col",
-                "--current.row",
-                "++current.col",
-            ],
+            right: ["++current.row", "++current.col", "--current.row", "--current.col"],
+            left: ["++current.row", "--current.col", "--current.row", "++current.col"]
         };
 
         for (const direction of ["right", "left"]) {
@@ -94,23 +84,18 @@ export class GameEngine {
             // move up full right and left
             line += this.board[current.row][current.col];
             // loop while not out of bounders and not the next move not empty and the number of movement less than 4
-            while (!this.isOutOfBounders(
-                eval(directions[direction][0]),
-                eval(directions[direction][1])
-            ) &&
+            while (!this.isOutOfBounders(eval(directions[direction][0]),eval(directions[direction][1])) &&
                 this.board[current.row][current.col] !== 0 &&
-                num_of_movement <= 4
-            ) {
+                num_of_movement <= 4) {
                 // append to the line
                 line += this.board[current.row][current.col];
                 num_of_movement++;
             }
 
             if (line.includes(target)) return true;
-            // move down full left and right
-            // reset the current position to the movement position
+            // reset the current position to the movement position and movements
             current = new Point(this.move.row, this.move.col);
-            // reset the movements
+
             num_of_movement = 0;
             // loop while not out of bounders and not the next move not empty and the number of movement less than 4
             while (!this.isOutOfBounders(eval(directions[direction][2]), eval(directions[direction][3])) &&

@@ -33,9 +33,18 @@ export class AIGameEngine extends GameEngine {
         }
         return points;
     }
+    
+    isAvailable(col_no){
+        
+        if(this.board[5][col_no] != 0){
+            return false;
+        }
+        return true;
+    }
 
-    easy(){
 
+    getEasyPlay(){
+        
     }
 
 }
