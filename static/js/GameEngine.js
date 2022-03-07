@@ -61,7 +61,7 @@ export class GameEngine {
     }
 
     checkDiagonal(color) {
-        let target =color.repeat(5);
+        let target = color.repeat(5);
         let directions = {
             right: [
                 "++current.row",
@@ -95,6 +95,8 @@ export class GameEngine {
                 line += this.board[current.row][current.col];
                 num_of_movement++;
             }
+
+            if (line.includes(target)) return true;
             // move down full left and right
             // reset the current position to the movement position
             current = new Point(this.move.row, this.move.col);
@@ -132,7 +134,7 @@ export class GameEngine {
             let line = this.board[current.row][current.col].toString();
 
             while (!this.isOutOfBounders(eval(directions[direction][0]), eval(directions[direction][1])) &&
-                num_of_movement <= 4 && 
+                num_of_movement <= 4 &&
                 this.board[current.row][current.col] != 0) {
                 // append to the line
                 console.log("append in first while")
@@ -149,7 +151,7 @@ export class GameEngine {
 
             // loop while not out of bounders and not the next move not empty and the number of movement less than 4
             while (!this.isOutOfBounders(eval(directions[direction][2]), eval(directions[direction][3])) &&
-                num_of_movement <= 4 && 
+                num_of_movement <= 4 &&
                 this.board[current.row][current.col] != 0) {
                 // append to the line
                 console.log("append in second while")
