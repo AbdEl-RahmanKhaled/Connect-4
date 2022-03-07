@@ -11,11 +11,11 @@
     <h1>Connect 4</h1>
 </div>
 <div class="container">
-    <form action="game.html">
+    <form action="game.html" method="get">
         <div>
-            <input type="text" id="txtPlayer1" placeholder="player I" required>
+            <input type="text" name="p1" id="txtPlayer1" placeholder="player I" required>
             <!--            <br>-->
-            <input type="text" id="txtPlayer2" placeholder="player II">
+            <input type="text" name="p2" id="txtPlayer2" placeholder="player II">
         </div>
 <!--        <hr>-->
         <label for="gameMode">Game Mode</label>
@@ -29,24 +29,24 @@
 <!--        <hr>-->
         <label for="gameLevel">Game Level</label>
         <div id="gameLevel" class="section">
-            <input type="radio" id="easy" name="gameLevel" value="easy" checked>
+            <input type="radio" id="easy" name="gameLevel" value="1" checked>
             <label for="easy"><img id="easyImg" class="icon selected" src="static/img/easy.png" alt="easy"></label>
 
-            <input type="radio" id="hard" name="gameLevel" value="hard">
+            <input type="radio" id="hard" name="gameLevel" value="2">
             <label for="hard"><img id="hardImg" class="icon" src="static/img/hard.png" alt="hard"></label>
         </div>
         <div id="divAi">
 <!--            <hr>-->
             <label for="aiMode">AI Mode</label>
             <div id="aiMode" class="section">
-                <input type="radio" id="basic" name="ai_mode" value="basic" checked>
+                <input type="radio" id="basic" name="aiType" value="basic" checked>
                 <label for="basic"><img id="basicImg" class="icon selected" src="static/img/basic.png"
                                         alt="basic"></label>
 
-                <input type="radio" id="mid" name="ai_mode" value="mid">
+                <input type="radio" id="mid" name="aiType" value="mid">
                 <label for="mid"><img id="midImg" class="icon" src="static/img/mid.png" alt="mid"></label>
 
-                <input type="radio" id="smart" name="ai_mode" value="smart">
+                <input type="radio" id="smart" name="aiType" value="smart">
                 <label for="smart"><img id="smartImg" class="icon" src="static/img/smart.png" alt="smart"></label>
             </div>
         </div>
@@ -54,7 +54,7 @@
         <div>
             <!--            <input type="submit" value="Submit">-->
             <button class="cta" type="submit">
-                <span id="btn">Start</span>
+                <span id="btn">Submit</span>
                 <span style="margin-top: 10px">
                   <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg">
                     <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">

@@ -60,8 +60,8 @@ export class GameEngine {
         return row > 5 || col > 6 || row < 0 || col < 0;
     }
 
-    checkWinner(color, level){
-        if(level === 1){
+    checkWinner(color){
+        if(this.#_level === 1){
             return this.checkStraight(color, 4);
         }
         else{
