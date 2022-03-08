@@ -1,56 +1,90 @@
-import {GameEngine} from "./GameEngine.js";
-import {Point} from "./Point.js";
-import {render} from "./view.js"
-import {AIGameEngine} from "./AIGameEngine.js";
-
-// let colors = {'red': 1, 'yellow': 2};
-// let current_color = 'red';
-let _board = [];
-let engine = new AIGameEngine();
+import { GameEngine } from "./GameEngine.js";
+import { AIGameEngine } from "./AIGameEngine.js";
+import { Point } from "./Point.js";
+import { render } from "./view.js"
 
 // red 1, yellow 1
-let board;
-window.addEventListener("load", function() {
+let _board = [];
+let engine, board, search;
+let started = false;
+let isAI;
+
+// red 1, yellow 1
+
+
+window.addEventListener("load", function () {
+    // get values from search
+    search = location.search.split("&");
+    // render board
     render();
-    init_board();
-    // select all columns
-    let cols = document.querySelectorAll('.column');
+    // initialize the game logic
+    initLogic();
     // get board
     board = document.getElementById("game-board");
     // add on click to column
-    cols.forEach(col => {
+    document.querySelectorAll('.column').forEach(col => {
         col.addEventListener("click", () => {
             setColor(col.getAttribute("data-x"));
         }); // end event
     }); // end loop
+
+    // button start action
+    let btn = document.getElementById("btnStart");
+    btn.addEventListener('click', function (e) {
+        started = true;
+        btn.hidden = true
+    }); // end event
+
 }); // end load
 
-
-function setColor(col_no) {
-    // get all free places in the column
-    let free_rows = document.querySelectorAll("#column-" + col_no + "> svg > .free");
-    // check if there are free places
-    if (free_rows.length > 0) {
-        // get the next row
-        let row = free_rows[free_rows.length - 1];
-        // remove indicator
-        row.classList.remove("free");
-        // set current color
-        row.classList.add(engine.current_color);
-        // set current move
-        engine.move = new Point(row.getAttribute("data-y"), col_no);
-        // change the turn
-        changeTurn();
+function initLogic() {
+    // fill 2d array
+    initBoardArray();
+    // set game engine
+    if (getValue('gameMode') === 'individual') {
+        isAI = true;
+        engine = new AIGameEngine();
+        engine.ai_type = getValue('aiType');
     } else {
-        board.classList.add('animate');
-        setTimeout(() => {
-            board.classList.remove('animate');
-        }, 500);
+        isAI = false;
+        engine = new GameEngine();
     }
-
+    // set level
+    engine.level = Number(getValue('gameLevel'));
 }
 
-function init_board() {
+function setColor(col_no) {
+    if (started) {
+        // get all free places in the column
+        let free_rows = document.querySelectorAll("#column-" + col_no + "> svg > .free");
+        // check if there are free places
+        if (free_rows.length > 0) {
+            // get the next row
+            let row = free_rows[free_rows.length - 1];
+            // remove indicator
+            row.classList.remove("free");
+            // set current color
+            row.classList.add(engine.current_color);
+            // set current move
+            engine.move = new Point(row.getAttribute("data-y"), col_no);
+            // change the turn
+            changeTurn();
+        } else {
+            showAnimation();
+        }
+    } else {
+        showAnimation();
+    }
+}
+
+function showAnimation() {
+    board.classList.add('animate');
+    setTimeout(() => {
+        board.classList.remove('animate');
+    }, 500);
+}
+
+function initBoardArray() {
     // initialize 2d array board
     for (let i = 0; i < 6; i++) {
         _board[i] = new Array(7);
@@ -61,13 +95,13 @@ function init_board() {
 }
 
 function changeTurn() {
-     _board[engine.move.row][engine.move.col] = engine.colors[engine.current_color];
-     //update board in game engine
+    _board[engine.move.row][engine.move.col] = engine.colors[engine.current_color];
+    //update board in game engine
     engine.board = _board;
 
     //console.log(engine.checkDiagonal(engine.colors[engine.current_color]));
-    if(engine.checkWinner(engine.colors[engine.current_color], 2)){
-        alert(`${engine.colors[engine.current_color]} wins`)
+    if (engine.checkWinner(engine.colors[engine.current_color])) {
+        alert(`${engine.colors[engine.current_color]} wins`);
     }
 
     // change color
@@ -78,5 +112,13 @@ function changeTurn() {
     }
 }
 
+// to get value from search by key
+function getValue(key) {
+    for (const searchItem of search) {
+        if (searchItem.includes(key)) {
+            return searchItem.split('=')[1];
+        }
+    }
+}
 
 

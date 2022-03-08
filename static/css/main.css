@@ -9,6 +9,13 @@
     font-family:'Ubuntu',sans-serif;
 }
 
+.main_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 #game-board, .container {
     position: relative;
     background: #0074B3;
@@ -169,6 +176,14 @@ hr {
     /*align-items: baseline;*/
 }
 
+.gamebtn {
+    background: #0074B3;
+    box-shadow: 6px 6px 0 rgba(114, 114, 114, 0.63);
+}
+
+#btnStart{
+    width: 19em;
+}
 
 .cta:focus {
     outline: none;

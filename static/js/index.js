@@ -24,8 +24,7 @@ window.addEventListener('load', ev => {
         value2.addEventListener('change', change_level);
     }); //end selector
 
-    document.querySelectorAll("input[name='ai_mode']").forEach(value3 => {
-        console.log(value3)
+    document.querySelectorAll("input[name='aiType']").forEach(value3 => {
         value3.addEventListener('change', change_ai_mode);
     }); //end selector
 
@@ -46,7 +45,7 @@ window.addEventListener('load', ev => {
     }
 
     function change_level(e2) {
-        if (e2.target.value === 'easy') {
+        if (e2.target.value === '1') {
             easyImg.classList.add('selected');
             hardImg.classList.remove('selected');
         } else {
