@@ -13,7 +13,6 @@ export class AIGameEngine extends GameEngine {
         return this.#_computer_move;
     }
 
-
     get ai_type() {
         return this.#_ai_type;
     }
@@ -34,22 +33,7 @@ export class AIGameEngine extends GameEngine {
         return points;
     }
 
-    easyPlay() {
-        
-        let generatedCol;
-        let generatedRow;
-        do {
-            generatedCol = Math.floor(Math.random() * 7);
-            generatedRow = selectRow(generatedCol);
-        }
-        while (generatedRow === -1)
-        console.log(`Selected ${generatedRow} and ${generatedCol}`)
-
-        this.#_computer_move.row(generatedRow);
-        this.#_computer_move.col(generatedCol);
-    }
-
-    selectRow(col_no) {
+    selectRow(col_no){
 
         if (this.board[5][col_no] != 0) {
             return -1;
@@ -57,7 +41,21 @@ export class AIGameEngine extends GameEngine {
         for (let i = 0; i < 6; i++) {
             if (this.board[i][col_no] == 0) return i;
         }
-      
+      return -10;
     }
+
+    easyPlay() {
+        let generatedCol = -1;
+        let generatedRow = -1;
+        do {
+            generatedCol = Math.floor(Math.random() * 7);
+            generatedRow = this.selectRow(generatedCol);
+        }
+        while (generatedRow === -1)
+        //console.log(`Selected ${generatedRow} and ${generatedCol}`)
+        this.#_computer_move = new Point(generatedRow, generatedCol);
+    }
+
+   
 
 }

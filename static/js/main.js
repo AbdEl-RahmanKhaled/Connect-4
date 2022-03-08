@@ -56,10 +56,9 @@ function initLogic() {
 function setColor(col_no) {
     if (started) {
         // get all free places in the column
-
         let free_rows = document.querySelectorAll("#column-" + col_no + "> svg > .free");
         // check if there are free places
-        if (free_rows.length > 0){
+        if (free_rows.length > 0) {
             // get the next row
             let row = free_rows[free_rows.length - 1];
             // remove indicator
@@ -72,7 +71,15 @@ function setColor(col_no) {
             changeTurn();
             if (isAI) {
                 engine.easyPlay();
-                console.log(engine.computer_move)
+                console.log(engine.computer_move);
+
+                circle = document.querySelectorAll("#column-" + engine.computer_move.col + "> .row-" + engine.computer_move.row + "> .free");
+                row = free_rows[free_rows.length - 1];
+                row.classList.remove("free");
+                // set current color
+                row.classList.add(engine.current_color);
+                // set current move
+                engine.move = new Point(row.getAttribute("data-y"), col_no);
                 changeTurn();
             }
 
