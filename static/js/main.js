@@ -28,7 +28,7 @@ window.addEventListener("load", function () {
         }); // end event
     }); // end loop
 
-    // button start action
+    //button start action
     let btn = document.getElementById("btnStart");
     btn.addEventListener('click', function (e) {
         started = true;
@@ -56,9 +56,10 @@ function initLogic() {
 function setColor(col_no) {
     if (started) {
         // get all free places in the column
+
         let free_rows = document.querySelectorAll("#column-" + col_no + "> svg > .free");
         // check if there are free places
-        if (free_rows.length > 0) {
+        if (free_rows.length > 0){
             // get the next row
             let row = free_rows[free_rows.length - 1];
             // remove indicator
@@ -69,6 +70,12 @@ function setColor(col_no) {
             engine.move = new Point(row.getAttribute("data-y"), col_no);
             // change the turn
             changeTurn();
+            if (isAI) {
+                engine.easyPlay();
+                console.log(engine.computer_move)
+                changeTurn();
+            }
+
         } else {
             showAnimation();
         }

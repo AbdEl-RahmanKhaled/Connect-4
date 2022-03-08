@@ -1,8 +1,8 @@
-import {GameEngine} from "./GameEngine.js";
-import {Point} from "./Point.js";
+import { GameEngine } from "./GameEngine.js";
+import { Point } from "./Point.js";
 
 export class AIGameEngine extends GameEngine {
-    #_computer_move;
+    #_computer_move = new Point(-1,-1);
     #_ai_type;
 
     constructor() {
@@ -26,31 +26,38 @@ export class AIGameEngine extends GameEngine {
         let points = [];
         for (let i = 0; i < 6; i++) {
             for (let j = 0; j < 7; j++) {
-                if (! this.board[i][j]) {
+                if (!this.board[i][j]) {
                     points.push(new Point(i, j));
                 }
             }
         }
         return points;
     }
-    
-    getRow(col_no){
 
-        if(this.board[5][col_no] != 0){
-            return false;
+    easyPlay() {
+        
+        let generatedCol;
+        let generatedRow;
+        do {
+            generatedCol = Math.floor(Math.random() * 7);
+            generatedRow = selectRow(generatedCol);
         }
-        return true;
+        while (generatedRow === -1)
+        console.log(`Selected ${generatedRow} and ${generatedCol}`)
+
+        this.#_computer_move.row(generatedRow);
+        this.#_computer_move.col(generatedCol);
     }
 
+    selectRow(col_no) {
 
-    getEasyPlay(){
-        let generatedCol;
-        do{
-          generatedCol = Math.floor(Math.random() * 7);
+        if (this.board[5][col_no] != 0) {
+            return -1;
         }
-        while(this.getRow())
-
-        return generatedCol;
+        for (let i = 0; i < 6; i++) {
+            if (this.board[i][col_no] == 0) return i;
+        }
+      
     }
 
 }

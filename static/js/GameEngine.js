@@ -69,7 +69,6 @@ export class GameEngine {
         }
     }
 
-
     checkDiagonal(color) {
         let target = color.toString().repeat(5);
         let directions = {
@@ -132,11 +131,11 @@ export class GameEngine {
                 num_of_movement <= 4 &&
                 this.board[current.row][current.col] != 0) {
                 // append to the line
-                console.log("append in first while")
+                //console.log("append in first while")
                 line += this.board[current.row][current.col];
                 num_of_movement++;
             }
-            console.log(`Line Value: ${line}`);
+            //console.log(`Line Value: ${line}`);
             if (line.includes(target)) return true;
 
             // reset the movements and current point
@@ -149,11 +148,11 @@ export class GameEngine {
                 num_of_movement <= 4 &&
                 this.board[current.row][current.col] != 0) {
                 // append to the line
-                console.log("append in second while")
+                //console.log("append in second while")
                 line = this.board[current.row][current.col] + line;
                 num_of_movement++;
             }
-            console.log(line);
+            //console.log(line);
             if (line.includes(target)) return true;
         }
         return false;
