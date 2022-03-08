@@ -34,12 +34,11 @@ export class AIGameEngine extends GameEngine {
     }
 
     selectRow(col_no){
-
-        if (this.board[5][col_no] != 0) {
+        if (this.board[5][col_no] !== 0) {
             return -1;
         }
         for (let i = 0; i < 6; i++) {
-            if (this.board[i][col_no] == 0) return i;
+            if (this.board[i][col_no] === 0) return i;
         }
       return -10;
     }

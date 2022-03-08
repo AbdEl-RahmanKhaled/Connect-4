@@ -1,14 +1,14 @@
-import { GameEngine } from "./GameEngine.js";
-import { AIGameEngine } from "./AIGameEngine.js";
-import { Point } from "./Point.js";
-import { render } from "./view.js"
+import {GameEngine} from "./GameEngine.js";
+import {AIGameEngine} from "./AIGameEngine.js";
+import {Point} from "./Point.js";
+import {render} from "./view.js"
 
 // red 1, yellow 1
 let _board = [];
 let engine, board, search;
 let started = false;
 let isAI;
-
+let isAiTurn = false;
 // red 1, yellow 1
 
 
@@ -69,26 +69,21 @@ function setColor(col_no) {
             engine.move = new Point(row.getAttribute("data-y"), col_no);
             // change the turn
             changeTurn();
-            if (isAI) {
-                engine.easyPlay();
-                console.log(engine.computer_move);
-
-                circle = document.querySelectorAll("#column-" + engine.computer_move.col + "> .row-" + engine.computer_move.row + "> .free");
-                row = free_rows[free_rows.length - 1];
-                row.classList.remove("free");
-                // set current color
-                row.classList.add(engine.current_color);
-                // set current move
-                engine.move = new Point(row.getAttribute("data-y"), col_no);
-                changeTurn();
+            if (isAI && isAiTurn) {
+                aiTurn();
             }
-
         } else {
             showAnimation();
         }
     } else {
         showAnimation();
     }
+}
+
+function aiTurn() {
+    engine.easyPlay();
+    console.log(engine.computer_move)
+    setColor(engine.computer_move.col);
 }
 
 function showAnimation() {
@@ -117,13 +112,13 @@ function changeTurn() {
     if (engine.checkWinner(engine.colors[engine.current_color])) {
         alert(`${engine.colors[engine.current_color]} wins`);
     }
-
     // change color
     if (engine.current_color === 'red') {
         engine.current_color = 'yellow'
     } else {
         engine.current_color = 'red'
     }
+    isAiTurn = !isAiTurn;
 }
 
 // to get value from search by key
