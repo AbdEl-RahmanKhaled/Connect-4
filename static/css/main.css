@@ -345,7 +345,7 @@ form{
 }
 
 .icon:active, .selected {
-    border: 3px groove rgb(158, 157, 157);
+    border: 3px inset rgb(102, 102, 102);
     box-shadow: 0 0 0 0 #545454  
 }
 
