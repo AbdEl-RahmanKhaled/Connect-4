@@ -212,7 +212,8 @@ form{
 }
 
 .dialog {
-    width: 400px;
+    /*width: 12em;*/
+    width: auto;
     height: 250px;
     position: relative;
     /*top: 50vh - 250px;*/
@@ -222,7 +223,7 @@ form{
     text-align: center;
     font-size: 30px;
     border-radius: 15px;
-    padding: 10px;
+    padding: 10px 1em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -245,14 +246,16 @@ form{
 /*}*/
 
 .dialog button {
-    width: 100px;
-    height: 30px;
+    width: 4.5em;
+    height: 1.5em;
     background: #efa032;
     border: none;
     border-radius: 10px;
-    margin-top: 30px;
+    /*margin-top: 30px;*/
     cursor: pointer;
-    font-size: 20px;
+    font-size: 25px;
+    padding: 5px ;
+    margin: 30px 30px 0 30px;
 }
 
 .dialog a {
