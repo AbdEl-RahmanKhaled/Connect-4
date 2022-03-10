@@ -112,6 +112,7 @@ label {
 .lbl {
     display: flex;
     flex-direction: column;
+    /*width: 100px;*/
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -169,14 +170,38 @@ label {
 
 }
 
+.tooltiptext {
+    visibility: hidden;
+    max-width: 190px;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 5px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 17px;
+    /* Position the tooltip */
+    position: absolute;
+    /*top: 56%;*/
+    left: 37%;
+    /*z-index: 1;*/
+    transition: 100ms ease-in-out;
+}
+
 .icon:active, .selected {
     border: 2px solid white;
-    box-shadow: 0 0 5pt 2pt #545454;
+    box-shadow: 0 0 5pt 2pt #545454
 }
+
+.lbl:hover .tooltiptext {
+    visibility: visible;
+}
+
 
 .section {
     padding: 10px;
     margin-bottom: 10px;
+    width: 100%;
     display: flex;
     /*align-items: center;*/
     justify-content: space-around;
