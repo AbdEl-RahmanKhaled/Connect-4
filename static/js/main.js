@@ -5,8 +5,7 @@ import {render} from "./view.js"
 
 // red 1, yellow 1
 let _board = [];
-let engine, board, search, p1, p2, dialog_prev_data, btn_show_prev, btn_close, dialog_result, res_msg, time, prev_p1,
-    prev_p2, prev_res;
+let engine, board, search, p1, p2;
 let started = false;
 let isAI;
 let isAiTurn = false;
@@ -118,7 +117,9 @@ function setColor(col_no) {
 }
 
 function aiTurn() {
+    // engine.getBestMove(Array.from(engine.board));
     engine.easyPlay();
+    console.log("main board : " + _board)
     console.log(engine.computer_move)
     setColor(engine.computer_move.col);
 }
@@ -143,7 +144,8 @@ function initBoardArray() {
 function changeTurn() {
     _board[engine.move.row][engine.move.col] = engine.colors[engine.current_color];
     //update board in game engine
-    engine.board = _board;
+    engine.board = Array.from(_board);
+
     //console.log(engine.checkDiagonal(engine.colors[engine.current_color]));
     if (engine.checkWinner(engine.colors[engine.current_color])) {
         showGameResult(engine.current_color);
