@@ -185,17 +185,22 @@ function saveNewData() {
 }
 
 function loadSaved() {
-    prev_p1.innerHTML = window.localStorage.getItem('p1');
-    prev_p2.innerHTML = window.localStorage.getItem('p2');
-    time.innerHTML = window.localStorage.getItem('date');
-    prev_res.innerHTML = window.localStorage.getItem('status');
-    if (window.localStorage.getItem('status').includes(window.localStorage.getItem('p1'))) {
-        prev_res.className = 'color_red';
-    } else if (window.localStorage.getItem('status').includes(window.localStorage.getItem('p2'))) {
-        prev_res.className = 'color_yellow';
-    } else {
-        prev_res.className = '';
+    try {
+        prev_p1.innerHTML = window.localStorage.getItem('p1');
+        prev_p2.innerHTML = window.localStorage.getItem('p2');
+        time.innerHTML = window.localStorage.getItem('date');
+        prev_res.innerHTML = window.localStorage.getItem('status');
+        if (window.localStorage.getItem('status').includes(window.localStorage.getItem('p1'))) {
+            prev_res.className = 'color_red';
+        } else if (window.localStorage.getItem('status').includes(window.localStorage.getItem('p2'))) {
+            prev_res.className = 'color_yellow';
+        } else {
+            prev_res.className = '';
+        }
+    } catch (e) {
+
     }
+
 }
 
 function showDialog(d) {
