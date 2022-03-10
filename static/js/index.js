@@ -9,7 +9,7 @@ window.addEventListener('load', ev => {
     let midImg = document.getElementById("midImg");
     let smartImg = document.getElementById("smartImg");
 
-    let aiModeDiv = document.getElementById("divAi");
+    // let aiModeDiv = document.getElementById("divAi");
 
     let txtPlayer2 = document.getElementById("txtPlayer2");
 
@@ -24,9 +24,9 @@ window.addEventListener('load', ev => {
         value2.addEventListener('change', change_level);
     }); //end selector
 
-    document.querySelectorAll("input[name='aiType']").forEach(value3 => {
-        value3.addEventListener('change', change_ai_mode);
-    }); //end selector
+    // document.querySelectorAll("input[name='aiType']").forEach(value3 => {
+    //     value3.addEventListener('change', change_ai_mode);
+    // }); //end selector
 
     function change_mode(e1) {
         if (e1.target.value === "multi") {
@@ -34,13 +34,15 @@ window.addEventListener('load', ev => {
             userImg.classList.add('selected');
             txtPlayer2.hidden = false;
             txtPlayer2.required = true;
-            aiModeDiv.hidden = true;
+            txtPlayer2.value = ''
+            // aiModeDiv.hidden = true;
         } else {
             userImg.classList.remove('selected');
             aiImg.classList.add('selected');
             txtPlayer2.hidden = true;
             txtPlayer2.required = false;
-            aiModeDiv.hidden = false;
+            txtPlayer2.value = 'Computer'
+            // aiModeDiv.hidden = false;
         }
     }
 

@@ -11,15 +11,18 @@
 </head>
 <body>
 <div class="main_wrapper">
-    <div class="logo">
-        <h1>Connect 4</h1>
-    </div>
+    <!--    <div class="logo">-->
+    <!--        <h1>Connect 4</h1>-->
+    <!--    </div>-->
     <div class="vs">
         <h1 id="vs">
             <span id="p1">P1</span>VS<span id="p2">Computer</span>
         </h1>
     </div>
     <div id="game-board">
+    </div>
+    <div class="prev-game">
+        <span id="show-prev">Show Previous Game Result</span>
     </div>
     <div id="btnStart">
         <a class="cta gamebtn">
@@ -65,6 +68,58 @@
                 </span>
         </a>
     </div>
+    <div id="dialog-prev" class="hide-dialog">
+        <div class="dialog">
+            <div>
+                <label for="time">Time: </label>
+                <span id="time">No Data</span>
+                <br>
+                <label class="color_red" for="op1">Player 1: </label>
+                <span id="op1">No Data</span>
+                <br>
+                <label class="color_yellow" for="op2">Player 2: </label>
+                <span id="op2">No Data</span>
+                <br>
+                <label for="ores">Result: </label>
+                <span id="ores">No Data</span>
+                <br>
+            </div>
+            <button id="btnClose">Close</button>
+        </div>
+    </div>
+    <div id="dialog-result" class="hide-dialog">
+        <div class="dialog">
+            <div>
+                <div id="game-result-msg">
+                    <span class="color_red">Color</span> Won
+                </div>
+                <div>
+                    <button id="btnRePlay">Play Again</button>
+                    <button><a href="index.html" id="btnBack">Back</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
 </body>
 </html>
+
+<!--<div class="logo">-->
+<!--        <h1>Connect 4</h1>-->
+<!--    </div>-->
+<!--    <div class="game">-->
+<!--        <div class="vs">-->
+<!--            <h1>-->
+<!--                <span id="p1">P1</span></span>-->
+<!--            </h1>-->
+<!--        </div>-->
+<!--        <div id="game-board">-->
+<!--        </div>-->
+<!--        <div class="vs">-->
+<!--            <h1 id="vs">-->
+<!--                <span id="p2">Computer</span>-->
+<!--            </h1>-->
+<!--        </div>-->
+<!--    </div>-->

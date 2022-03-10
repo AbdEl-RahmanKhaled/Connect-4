@@ -17,7 +17,7 @@
         <div>
             <input type="text" name="p1" id="txtPlayer1" placeholder="player I" required>
             <!--            <br>-->
-            <input type="text" name="p2" id="txtPlayer2" placeholder="player II">
+            <input type="text" name="p2" id="txtPlayer2" value="Computer" placeholder="player II">
         </div>
         <!--        <hr>-->
         <label for="gameMode">Game Mode</label>
@@ -36,45 +36,47 @@
         </div>
         <label for="gameLevel">Game Level</label>
         <div id="gameLevel" class="section">
-            <input type="radio" id="easy" name="gameLevel" value="1" checked>
+
             <div class="lbl">
+                <input type="radio" id="easy" name="gameLevel" value="1" checked>
                 <label for="easy"><img id="easyImg" class="icon selected" src="static/img/easy.png" alt="easy"></label>
                 <span>Easy</span>
                 <span class="tooltiptext">You need to connect 4 circles in row or column</span>
             </div>
 
-            <input type="radio" id="hard" name="gameLevel" value="2">
+
             <div class="lbl">
+                <input type="radio" id="hard" name="gameLevel" value="2">
                 <label for="hard"><img id="hardImg" class="icon" src="static/img/hard.png" alt="hard"></label>
                 <span>Complex</span>
                 <span class="tooltiptext">You need to connect 5 circles in row column or diagonal</span>
             </div>
 
         </div>
-        <div id="divAi">
-            <!--            <hr>-->
-            <label for="aiMode">AI Mode</label>
-            <div id="aiMode" class="section">
-                <input type="radio" id="basic" name="aiType" value="basic" checked>
-               <div class="lbl">
-                    <label for="basic"><img id="basicImg" class="icon selected" src="static/img/basic.png"
-                                        alt="basic"></label>
-                   <span>Basic</span>
-               </div>
+        <!--        <div id="divAi">-->
+        <!--            &lt;!&ndash;            <hr>&ndash;&gt;-->
+        <!--            <label for="aiMode">AI Mode</label>-->
+        <!--            <div id="aiMode" class="section">-->
+        <!--                <input type="radio" id="basic" name="aiType" value="basic" checked>-->
+        <!--               <div class="lbl">-->
+        <!--                    <label for="basic"><img id="basicImg" class="icon selected" src="static/img/basic.png"-->
+        <!--                                        alt="basic"></label>-->
+        <!--                   <span>Basic</span>-->
+        <!--               </div>-->
 
-                <input type="radio" id="mid" name="aiType" value="mid">
-                <div class="lbl">
-                    <label for="mid"><img id="midImg" class="icon" src="static/img/mid.png" alt="mid"></label>
-                    <span>Medium</span>
-                </div>
+        <!--                <input type="radio" id="mid" name="aiType" value="mid">-->
+        <!--                <div class="lbl">-->
+        <!--                    <label for="mid"><img id="midImg" class="icon" src="static/img/mid.png" alt="mid"></label>-->
+        <!--                    <span>Medium</span>-->
+        <!--                </div>-->
 
-                <input type="radio" id="smart" name="aiType" value="smart">
-                <div class="lbl">
-                    <label for="smart"><img id="smartImg" class="icon" src="static/img/smart.png" alt="smart"></label>
-                    <span>Smart</span>
-                </div>
-            </div>
-        </div>
+        <!--                <input type="radio" id="smart" name="aiType" value="smart">-->
+        <!--                <div class="lbl">-->
+        <!--                    <label for="smart"><img id="smartImg" class="icon" src="static/img/smart.png" alt="smart"></label>-->
+        <!--                    <span>Smart</span>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
         <!--        <hr>-->
         <div>
             <!--            <input type="submit" value="Submit">-->
