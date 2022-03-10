@@ -13,6 +13,29 @@
     user-select: none;
 }
 
+body{
+    background: linear-gradient(-45deg, #ee7752, #336485, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 75% 50%;
+	}
+    75%{
+        background-position: 100% 50%;
+    }
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
 .main_wrapper {
     display: flex;
     flex-direction: column;
@@ -20,42 +43,14 @@
     justify-content: center;
 }
 
-#gradient
-{
-    height: 200px;;
-    width:200px;
-    border:1px solid black;
-    font-size:30px;
-    background: linear-gradient(130deg, #ff7e00, #ffffff, #5cff00);
-    background-size: 100% 100%;
-    -webkit-animation: Animation 5s ease infinite;
-    -moz-animation: Animation 5s ease infinite;
-    animation: Animation 5s ease infinite;
-}
-
-@-webkit-keyframes Animation {
-    0%{background-position:10% 0%}
-    50%{background-position:91% 100%}
-    100%{background-position:10% 0%}
-}
-@-moz-keyframes Animation {
-    0%{background-position:10% 0%}
-    50%{background-position:91% 100%}
-    100%{background-position:10% 0%}
-}
-@keyframes Animation { 
-    0%{background-position:10% 0%}
-    50%{background-position:91% 100%}
-    100%{background-position:10% 0%}
-}
-
 #game-board, .container {
     position: relative;
-    background: #0074B3;
+    /* background: #0074B3; */
+    background: #0074b33f;
     width: 730px;
     cursor: pointer;
     margin: 10px auto;
-    box-shadow: 5px 5px 10px #707070;
+    box-shadow: 5px 5px 10px #1b1b1ba6;
     text-align: center;
     padding-top: 4px;
     border-radius: 15px;
