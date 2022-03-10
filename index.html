@@ -9,57 +9,79 @@
 </head>
 
 <body>
-    <div class="logo">
-        <h1>Connect 4</h1>
-    </div>
-    <div class="container">
-        <form action="game.html" method="get">
-            <div>
-                <input type="text" name="p1" id="txtPlayer1" placeholder="player I" required>
-                <!--            <br>-->
-                <input type="text" name="p2" id="txtPlayer2" placeholder="player II">
-            </div>
-            <!--        <hr>-->
-            <label for="gameMode">Game Mode</label>
-            <div id="gameMode" class="section">
-                <input type="radio" id="indv" class="gameMode" name="gameMode" value="individual" checked>
+<div class="logo">
+    <h1>Connect 4</h1>
+</div>
+<div class="container">
+    <form action="game.html" method="get">
+        <div>
+            <input type="text" name="p1" id="txtPlayer1" placeholder="player I" required>
+            <!--            <br>-->
+            <input type="text" name="p2" id="txtPlayer2" placeholder="player II">
+        </div>
+        <!--        <hr>-->
+        <label for="gameMode">Game Mode</label>
+        <div id="gameMode" class="section">
+            <input type="radio" id="indv" class="gameMode" name="gameMode" value="individual" checked>
+            <div class="lbl">
                 <label for="indv"><img id="aiImg" class="icon selected" src="static/img/ai.png" alt="ai"></label>
+                <span>AI</span>
+            </div>
 
-                <input type="radio" id="mult" class="gameMode" name="gameMode" value="multi">
+            <input type="radio" id="mult" class="gameMode" name="gameMode" value="multi">
+            <div class="lbl">
                 <label for="mult"><img id="userImg" class="icon" src="static/img/user.png" alt="user"></label>
+                <span>Multi</span>
             </div>
-            <!--        <hr>-->
-            <label for="gameLevel">Game Level</label>
-            <div id="gameLevel" class="section">
-                <input type="radio" id="easy" name="gameLevel" value="1" checked>
+        </div>
+        <!--        <hr>-->
+        <label for="gameLevel">Game Level</label>
+        <div id="gameLevel" class="section">
+            <input type="radio" id="easy" name="gameLevel" value="1" checked>
+            <div class="lbl">
                 <label for="easy"><img id="easyImg" class="icon selected" src="static/img/easy.png" alt="easy"></label>
-
-                <input type="radio" id="hard" name="gameLevel" value="2">
-                <label for="hard"><img id="hardImg" class="icon" src="static/img/hard.png" alt="hard"></label>
+                <span>Easy</span>
             </div>
-            <div id="divAi">
-                <!--            <hr>-->
-                <label for="aiMode">AI Mode</label>
-                <div id="aiMode" class="section">
-                    <input type="radio" id="basic" name="aiType" value="basic" checked>
+
+            <input type="radio" id="hard" name="gameLevel" value="2">
+            <div class="lbl">
+                <label for="hard"><img id="hardImg" class="icon" src="static/img/hard.png" alt="hard"></label>
+                <span>Complex</span>
+            </div>
+
+        </div>
+        <div id="divAi">
+            <!--            <hr>-->
+            <label for="aiMode">AI Mode</label>
+            <div id="aiMode" class="section">
+                <input type="radio" id="basic" name="aiType" value="basic" checked>
+               <div class="lbl">
                     <label for="basic"><img id="basicImg" class="icon selected" src="static/img/basic.png"
-                            alt="basic"></label>
+                                        alt="basic"></label>
+                   <span>Basic</span>
+               </div>
 
-                    <input type="radio" id="mid" name="aiType" value="mid">
+                <input type="radio" id="mid" name="aiType" value="mid">
+                <div class="lbl">
                     <label for="mid"><img id="midImg" class="icon" src="static/img/mid.png" alt="mid"></label>
+                    <span>Medium</span>
+                </div>
 
-                    <input type="radio" id="smart" name="aiType" value="smart">
+                <input type="radio" id="smart" name="aiType" value="smart">
+                <div class="lbl">
                     <label for="smart"><img id="smartImg" class="icon" src="static/img/smart.png" alt="smart"></label>
+                    <span>Smart</span>
                 </div>
             </div>
-            <!--        <hr>-->
-            <div>
-                <!--            <input type="submit" value="Submit">-->
-                <button class="cta" type="submit">
-                    <span id="btn">Submit</span>
-                    <span style="margin-top: 10px">
+        </div>
+        <!--        <hr>-->
+        <div>
+            <!--            <input type="submit" value="Submit">-->
+            <button class="cta" type="submit">
+                <span id="btn">Submit</span>
+                <span style="margin-top: 10px">
                         <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1"
-                            xmlns="http://www.w3.org/2000/svg">
+                             xmlns="http://www.w3.org/2000/svg">
                             <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                 <path class="one" d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,
                             -0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,
@@ -94,10 +116,10 @@
                             </g>
                         </svg>
                     </span>
-                </button>
-            </div>
-        </form>
-    </div>
+            </button>
+        </div>
+    </form>
+</div>
 
 </body>
 

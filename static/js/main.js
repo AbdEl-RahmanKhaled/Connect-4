@@ -5,13 +5,16 @@ import { render } from "./view.js"
 
 // red 1, yellow 1
 let _board = [];
-let engine, board, search;
+let engine, board, search, p1, p2;
 let started = false;
 let isAI;
 let isAiTurn = false;
 
 
 window.addEventListener("load", function () {
+    // get p1 and p2
+    p1 = document.getElementById('p1');
+    p2 = document.getElementById('p2');
     // get values from search
     search = location.search.split("&");
     // render board
@@ -50,6 +53,11 @@ function initLogic() {
     }
     // set level
     engine.level = Number(getValue('gameLevel'));
+    // set names
+    p1.innerHTML = getValue('p1');
+    if (!isAI){
+        p2.innerHTML = getValue('p2');
+    }
 }
 
 function setColor(col_no) {
