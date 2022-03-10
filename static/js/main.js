@@ -55,7 +55,7 @@ function initLogic() {
     engine.level = Number(getValue('gameLevel'));
     // set names
     p1.innerHTML = getValue('p1');
-    if (!isAI){
+    if (!isAI) {
         p2.innerHTML = getValue('p2');
     }
 }
@@ -88,7 +88,9 @@ function setColor(col_no) {
 }
 
 function aiTurn() {
+    // engine.getBestMove(Array.from(engine.board));
     engine.easyPlay();
+    console.log("main board : " + _board)
     console.log(engine.computer_move)
     setColor(engine.computer_move.col);
 }
@@ -113,10 +115,10 @@ function initBoardArray() {
 function changeTurn() {
     _board[engine.move.row][engine.move.col] = engine.colors[engine.current_color];
     //update board in game engine
-    engine.board = _board;
+    engine.board = Array.from(_board);
 
     //console.log(engine.checkDiagonal(engine.colors[engine.current_color]));
-    if (engine.checkWinner(engine.colors[engine.current_color])) {
+    if (engine.checkWinner(engine.colors[engine.current_color], engine.board)) {
         alert(`${engine.colors[engine.current_color]} wins`);
     }
     // change color
