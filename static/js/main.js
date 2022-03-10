@@ -5,7 +5,8 @@ import {render} from "./view.js"
 
 // red 1, yellow 1
 let _board = [];
-let engine, board, search, p1, p2;
+let engine, board, search, p1, p2, dialog_prev_data, dialog_result, btn_show_prev, btn_close, res_msg, time, prev_p1,
+    prev_p2, prev_res;
 let started = false;
 let isAI;
 let isAiTurn = false;
