@@ -1,15 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&family=Ubuntu:wght@300&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap');*/
+/*@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');*/
+/*@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&family=Ubuntu:wght@300&display=swap');*/
+/*@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
 
 * {
     border: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:'Ubuntu',sans-serif;
+    font-family: 'Bangers', cursive;
 }
 
-.main_wrapper{
+.main_wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -85,7 +88,7 @@ circle.yellow {
     line-height: 8vh;
     color: rgb(7, 70, 107);
     /*background: #d52e3f;*/
-    font-family: 'Roboto Mono', monospace;    
+    /*font-family: 'Roboto Mono', monospace;*/
     font-weight: 300;
     text-shadow: 5px 5px 0 #eb452b,
     10px 10px 0 #efa032,
@@ -97,7 +100,7 @@ circle.yellow {
 
 .container {
     color: white;
-    font-family: 'Niconne', cursive;
+    /*font-family: 'Niconne', cursive;*/
     font-size: 20px;
     display: flex;
     align-items: center;
@@ -162,7 +165,7 @@ hr {
     display: flex;
     padding: 10px 45px;
     text-decoration: none;
-    margin: 10px auto;
+    margin: 1px auto;
     cursor: pointer;
     /*font-family: 'Poppins', sans-serif;*/
     font-size: 40px;
@@ -173,7 +176,7 @@ hr {
     transform: skewX(-15deg);
     width: 7em;
     justify-content: center;
-    /*align-items: baseline;*/
+    align-items: center;
 }
 
 .gamebtn {
@@ -181,7 +184,7 @@ hr {
     box-shadow: 6px 6px 0 rgba(114, 114, 114, 0.63);
 }
 
-#btnStart{
+#btnStart {
     width: 19em;
 }
 
