@@ -163,9 +163,9 @@ hr {
 
 .cta {
     display: flex;
-    padding: 10px 45px;
+    padding: 5px 10px;
     text-decoration: none;
-    margin: 1px auto;
+    margin: 15px auto;
     cursor: pointer;
     /*font-family: 'Poppins', sans-serif;*/
     font-size: 40px;
