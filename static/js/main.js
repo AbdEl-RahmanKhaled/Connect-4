@@ -1,7 +1,7 @@
-import {GameEngine} from "./GameEngine.js";
-import {AIGameEngine} from "./AIGameEngine.js";
-import {Point} from "./Point.js";
-import {render} from "./view.js"
+import { GameEngine } from "./GameEngine.js";
+import { AIGameEngine } from "./AIGameEngine.js";
+import { Point } from "./Point.js";
+import { render } from "./view.js"
 
 // red 1, yellow 1
 let _board = [];
@@ -9,7 +9,6 @@ let engine, board, search;
 let started = false;
 let isAI;
 let isAiTurn = false;
-// red 1, yellow 1
 
 
 window.addEventListener("load", function () {

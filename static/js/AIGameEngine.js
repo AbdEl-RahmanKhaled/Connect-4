@@ -55,6 +55,4 @@ export class AIGameEngine extends GameEngine {
         this.#_computer_move = new Point(generatedRow, generatedCol);
     }
 
-   
-
 }
