@@ -19,6 +19,35 @@
     justify-content: center;
 }
 
+#gradient
+{
+    height: 200px;;
+    width:200px;
+    border:1px solid black;
+    font-size:30px;
+    background: linear-gradient(130deg, #ff7e00, #ffffff, #5cff00);
+    background-size: 100% 100%;
+    -webkit-animation: Animation 5s ease infinite;
+    -moz-animation: Animation 5s ease infinite;
+    animation: Animation 5s ease infinite;
+}
+
+@-webkit-keyframes Animation {
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+}
+@-moz-keyframes Animation {
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+}
+@keyframes Animation { 
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+}
+
 #game-board, .container {
     position: relative;
     background: #0074B3;
@@ -312,8 +341,8 @@ form{
 }
 
 .icon:active, .selected {
-    border: 2px solid white;
-    box-shadow: 0 0 5pt 2pt #545454
+    border: 3px groove rgb(158, 157, 157);
+    box-shadow: 0 0 0 0 #545454  
 }
 
 .lbl:hover .tooltiptext {
