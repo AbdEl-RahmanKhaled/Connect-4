@@ -345,8 +345,8 @@ form{
 }
 
 .icon:active, .selected {
-    border: 3px inset rgb(102, 102, 102);
-    box-shadow: 0 0 0 0 #545454  
+    border: 2px inset rgb(102, 102, 102);
+    box-shadow: inset 0 0 3pt 2pt #545454  
 }
 
 .lbl:hover .tooltiptext {
