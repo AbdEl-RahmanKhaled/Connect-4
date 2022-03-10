@@ -15,7 +15,7 @@
 
 body{
     background: linear-gradient(-45deg, #ee7752, #336485, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
+	background-size: 400% 300%;
 	animation: gradient 10s ease infinite;
 	height: 100vh;
 }
@@ -24,10 +24,16 @@ body{
 	0% {
 		background-position: 0% 50%;
 	}
-	50% {
-		background-position: 75% 50%;
+	30% {
+		background-position: 50% 50%;
 	}
-    75%{
+    55% {
+		background-position: 70% 50%;
+	}
+    65% {
+		background-position: 90% 50%;
+	}
+    80%{
         background-position: 100% 50%;
     }
 	100% {
@@ -46,7 +52,7 @@ body{
 #game-board, .container {
     position: relative;
     /* background: #0074B3; */
-    background: #0074b33f;
+    background: #0074b35e;
     width: 730px;
     cursor: pointer;
     margin: 10px auto;
@@ -197,7 +203,7 @@ form{
     text-decoration: underline;
     cursor: pointer;
     font-size: 25px;
-    color: #052939;
+    color: #ffffff;
 }
 
 .hide-dialog {
