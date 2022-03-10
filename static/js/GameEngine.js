@@ -1,9 +1,9 @@
-import { Point } from "./Point.js";
+import {Point} from "./Point.js";
 
 export class GameEngine {
     #_move;
     #_current_color;
-    #_colors = { red: '1', yellow: '2' };
+    #_colors = {red: '1', yellow: '2'};
     #_board;
     #_level;
 
@@ -60,12 +60,11 @@ export class GameEngine {
         return row > 5 || col > 6 || row < 0 || col < 0;
     }
 
-    checkWinner(color){
-        if(this.#_level === 1){
+    checkWinner(color) {
+        if (this.#_level === 1) {
             return this.checkStraight(color, 4);
-        }
-        else{
-            return(this.checkDiagonal(color) || this.checkStraight(color, 5));
+        } else {
+            return (this.checkDiagonal(color) || this.checkStraight(color, 5));
         }
     }
 
@@ -83,9 +82,9 @@ export class GameEngine {
             // move up full right and left
             line += this.board[current.row][current.col];
             // loop while not out of bounders and not the next move not empty and the number of movement less than 4
-            while (!this.isOutOfBounders(eval(directions[direction][0]),eval(directions[direction][1])) &&
-                this.board[current.row][current.col] !== 0 &&
-                num_of_movement <= 4) {
+            while (!this.isOutOfBounders(eval(directions[direction][0]), eval(directions[direction][1])) &&
+            this.board[current.row][current.col] !== 0 &&
+            num_of_movement <= 4) {
                 // append to the line
                 line += this.board[current.row][current.col];
                 num_of_movement++;
@@ -98,8 +97,8 @@ export class GameEngine {
             num_of_movement = 0;
             // loop while not out of bounders and not the next move not empty and the number of movement less than 4
             while (!this.isOutOfBounders(eval(directions[direction][2]), eval(directions[direction][3])) &&
-                this.board[current.row][current.col] !== 0 &&
-                num_of_movement <= 4) {
+            this.board[current.row][current.col] !== 0 &&
+            num_of_movement <= 4) {
                 // append to the line
                 line = this.board[current.row][current.col] + line;
                 num_of_movement++;
@@ -114,7 +113,7 @@ export class GameEngine {
         return false;
     }
 
-    checkStraight(color, size){
+    checkStraight(color, size) {
         let target = color.toString().repeat(size);
 
         let directions = {
@@ -128,8 +127,8 @@ export class GameEngine {
             let line = this.board[current.row][current.col].toString();
 
             while (!this.isOutOfBounders(eval(directions[direction][0]), eval(directions[direction][1])) &&
-                num_of_movement <= 4 &&
-                this.board[current.row][current.col] != 0) {
+            num_of_movement <= 4 &&
+            this.board[current.row][current.col] !== 0) {
                 // append to the line
                 //console.log("append in first while")
                 line += this.board[current.row][current.col];
@@ -145,8 +144,8 @@ export class GameEngine {
 
             // loop while not out of bounders and not the next move not empty and the number of movement less than 4
             while (!this.isOutOfBounders(eval(directions[direction][2]), eval(directions[direction][3])) &&
-                num_of_movement <= 4 &&
-                this.board[current.row][current.col] != 0) {
+            num_of_movement <= 4 &&
+            this.board[current.row][current.col] !== 0) {
                 // append to the line
                 //console.log("append in second while")
                 line = this.board[current.row][current.col] + line;
