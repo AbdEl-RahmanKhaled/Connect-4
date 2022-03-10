@@ -150,6 +150,8 @@ function changeTurn() {
     //console.log(engine.checkDiagonal(engine.colors[engine.current_color]));
     if (engine.checkWinner(engine.colors[engine.current_color], engine.board)) {
         showGameResult(engine.current_color);
+    } else if (engine.isDraw(engine.board)) {
+        showGameResult('draw');
     }
     // change color
     if (engine.current_color === 'red') {
@@ -161,13 +163,16 @@ function changeTurn() {
 }
 
 function showGameResult(result) {
+    let res;
     if (result !== 'draw') {
-        let winner = getValue('p' + engine.colors[result]);
-        res_msg.innerHTML = `<span class="color_${result}">${winner}</span> Won !`
-        window.localStorage.setItem('status', winner + ' Won');
+        res = getValue('p' + engine.colors[result]);
+        res_msg.innerHTML = `<span class="color_${result}">${res}</span> Won !`
+        res += ' Won';
     } else {
         res_msg.innerHTML = `Draw !`
+        res = 'Draw'
     }
+    window.localStorage.setItem('status', res);
     showDialog(dialog_result)
 
 }
@@ -180,10 +185,22 @@ function saveNewData() {
 }
 
 function loadSaved() {
-    prev_p1.innerHTML = window.localStorage.getItem('p1');
-    prev_p2.innerHTML = window.localStorage.getItem('p2');
-    time.innerHTML = window.localStorage.getItem('date');
-    prev_res.innerHTML = window.localStorage.getItem('status');
+    try {
+        prev_p1.innerHTML = window.localStorage.getItem('p1');
+        prev_p2.innerHTML = window.localStorage.getItem('p2');
+        time.innerHTML = window.localStorage.getItem('date');
+        prev_res.innerHTML = window.localStorage.getItem('status');
+        if (window.localStorage.getItem('status').includes(window.localStorage.getItem('p1'))) {
+            prev_res.className = 'color_red';
+        } else if (window.localStorage.getItem('status').includes(window.localStorage.getItem('p2'))) {
+            prev_res.className = 'color_yellow';
+        } else {
+            prev_res.className = '';
+        }
+    } catch (e) {
+
+    }
+
 }
 
 function showDialog(d) {
