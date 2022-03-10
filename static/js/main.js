@@ -148,7 +148,7 @@ function changeTurn() {
     engine.board = Array.from(_board);
 
     //console.log(engine.checkDiagonal(engine.colors[engine.current_color]));
-    if (engine.checkWinner(engine.colors[engine.current_color])) {
+    if (engine.checkWinner(engine.colors[engine.current_color], engine.board)) {
         showGameResult(engine.current_color);
     }
     // change color
