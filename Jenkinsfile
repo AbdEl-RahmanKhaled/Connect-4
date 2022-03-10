@@ -6,7 +6,7 @@ pipeline {
            steps {
                script {
                     echo 'deploying ....'
-                    sh "cp . /var/www/html"
+                    sh "sudo cp -r . /var/www/html"
                }
             }
         }
